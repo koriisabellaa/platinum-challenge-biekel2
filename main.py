@@ -20,7 +20,7 @@ def transform(raw_data):
             transformed_data.append(
                                     {
                                         'super_key': hashlib.md5(str(list_data).encode()).hexdigest(),
-                                        'covid_data_province':  json.dumps(list_data),
+                                        'data_covid':  json.dumps(list_data),
                                         'input_time': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                                     }
                                     )
@@ -45,5 +45,5 @@ if __name__ == '__main__':
     raw_data = extract()['list_data']
     transformed_data = transform(raw_data)
     
-    table_id = 'kelompok_2_stg.covid_data_province'
+    table_id = 'kelompok_2_stg.data_covid'
     load(transformed_data, table_id)
