@@ -20,9 +20,10 @@ def transform(raw_data):
             transformed_data.append(
                                     {
                                         'super_key': hashlib.md5(str(list_data).encode()).hexdigest(),
-                                        'covid_data_province': list_data,
+                                        'covid_data_province':  json.dumps(list_data),
                                         'input_time': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-                                    })
+                                    }
+                                    )
     return transformed_data
 
 def load(transformed_data, table_id):
