@@ -6,7 +6,7 @@ from google.cloud import bigquery
 from google.oauth2 import service_account
 import requests
 
-url = 'https://data.covid19.go.id/public/api/prov.json'
+url = 'https://api-sekolah-indonesia.herokuapp.com/sekolah?page=1&perPage=10000'
 SA_CREDENTIALS_FILE = 'credentials-kelompok-2.json'
 
 def extract ():
@@ -16,11 +16,11 @@ def extract ():
 def transform(raw_data):
     transformed_data = []
     
-    for list_data in raw_data:
+    for dataSekolah in raw_data:
             transformed_data.append(
                                     {
-                                        'super_key': hashlib.md5(str(list_data).encode()).hexdigest(),
-                                        'data_covid':  json.dumps(list_data),
+                                        'super_key': hashlib.md5(str(dataSekolah).encode()).hexdigest(),
+                                        'data_sekolah':  json.dumps(dataSekolah),
                                         'input_time': datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                                     }
                                     )
@@ -42,8 +42,8 @@ def load(transformed_data, table_id):
 
 
 if __name__ == '__main__':
-    raw_data = extract()['list_data']
+    raw_data = extract()['dataSekolah']
     transformed_data = transform(raw_data)
     
-    table_id = 'kelompok_2_stg.data_covid'
+    table_id = 'kelompok_2_stg.data_sekolah'
     load(transformed_data, table_id)
