@@ -20,4 +20,4 @@ Here all the links related to this project:
 | Type                 | Links                                                                                                    |
 | ----------------------- | ------------------------------------------------------------------------------------------------------|
 | API                  | [Data Sekolah di Indonesia](https://github.com/wanrabbae/api-sekolah-indonesia)                          |
-| TRD                 | https://docs.google.com/document/d/1emeultnlvxyi6OmsIAYdrMJK0oEqhFYMjeIm2iUd-cg/edit#                                                                                                                             |
+| TRD                  | [Technical Requirements Document](https://docs.google.com/document/d/1emeultnlvxyi6OmsIAYdrMJK0oEqhFYMjeIm2iUd-cg/edit#)                                                                                                                            |
